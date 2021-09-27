@@ -1,5 +1,6 @@
 import StateTutorial from "./componets/StateTutorial";
 import { ReducerTutorial0, ReducerTutorial1 } from "./componets/ReducerTutorial";
+import EffectTutorial from "./componets/EffectTutorial";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -11,6 +12,10 @@ function App() {
     {
       text: "useReducer",
       hyperlink: "/useReducer",
+    },
+    {
+      text: "useEffect",
+      hyperlink: "/useEffect",
     },
   ];
 
@@ -36,6 +41,9 @@ function App() {
           <div>Using reducer</div>
           <ReducerTutorial1 />
         </Route>
+
+        <Route exact path="/useEffect">
+          <EffectTutorial />
         </Route>
       </Switch>
     </BrowserRouter>
