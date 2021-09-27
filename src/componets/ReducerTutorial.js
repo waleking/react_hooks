@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 
-// TODO: we need to change the following logic to useReducer
-const ReducerTutorial = () => {
+export const ReducerTutorial0 = () => {
   const [count, setCount] = useState(0);
   const [showText, setShowText] = useState(true);
 
@@ -21,4 +20,31 @@ const ReducerTutorial = () => {
   );
 };
 
-export default ReducerTutorial;
+// we change the above logic to useReducer
+export const ReducerTutorial1 = () => {
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "INCREMENTAL":
+        return { count: state.count + 1, showText: state.showText };
+      case "TOGGLESHOWTEXT":
+        return { count: state.count, showText: !state.showText };
+      default:
+        return state;
+    }
+  };
+  const [state, patch] = useReducer(reducer, { count: 0, showText: true });
+  return (
+    <div>
+      <p>{state.count}</p>
+      <button
+        onClick={() => {
+          patch({ type: "INCREMENTAL" });
+          patch({ type: "TOGGLESHOWTEXT" });
+        }}
+      >
+        click
+      </button>
+      {state.showText && <p>this is an even number</p>}
+    </div>
+  );
+};

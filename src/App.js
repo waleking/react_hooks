@@ -1,5 +1,5 @@
 import StateTutorial from "./componets/StateTutorial";
-import ReducerTutorial from "./componets/ReducerTutorial";
+import { ReducerTutorial0, ReducerTutorial1 } from "./componets/ReducerTutorial";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -31,7 +31,11 @@ function App() {
         </Route>
 
         <Route exact path="/useReducer">
-          <ReducerTutorial />
+          <div>Not using reducer</div>
+          <ReducerTutorial0 />
+          <div>Using reducer</div>
+          <ReducerTutorial1 />
+        </Route>
         </Route>
       </Switch>
     </BrowserRouter>
