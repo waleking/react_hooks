@@ -13,16 +13,18 @@ function App() {
       hyperlink: "/useReducer",
     },
   ];
-  const Links = () =>
-    links.map((link) => <Link to={link.hyperlink}>{link.text}</Link>);
+
+  const Navbar = () =>
+    links.map((link) => (
+      <span>
+        <Link to={link.hyperlink}>{link.text}</Link>
+        {"    "}
+      </span>
+    ));
 
   return (
     <BrowserRouter>
-      {/* The comment part is similar as Links*/}
-      {/* {links.map((link) => ( */}
-      {/*   <Link to={link.hyperlink}>{link.text}</Link> */}
-      {/* ))} */}
-      <Links />
+      <Navbar />
       <Switch>
         <Route exact path={["/", "/useState"]}>
           <StateTutorial />
